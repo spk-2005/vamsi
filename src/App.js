@@ -72,11 +72,17 @@ function App() {
           <Home />
           <hr/>
           <Features />
+          <hr/>
           <Skills />
+          <hr/>
           <Projects />
+          <hr/>
           <Education />
+          <hr/>
           <Certifications />
+          <hr/>
           <Strengths />
+          <hr/>
           <Interests />
         </div>
       </section>

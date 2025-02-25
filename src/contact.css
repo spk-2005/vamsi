@@ -3,7 +3,6 @@
 .contact-section {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
     overflow: hidden;
     gap: 1.5rem;
   }

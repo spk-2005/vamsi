@@ -1,61 +1,101 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import './header.css';
 import Contact from './contact';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
-
+  
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 500);
-      if (window.innerWidth > 500) {
-        setMenuOpen(false); // Close menu if resized to larger screen
+      const mobile = window.innerWidth <= 500;
+      setIsMobile(mobile);
+      
+      // Only close menu on resize if we've transitioned from mobile to desktop
+      if (!mobile) {
+        setMenuOpen(false);
       }
     };
-
+    
+    // Set initial state
+    handleResize();
+    
+    // Add event listener
     window.addEventListener('resize', handleResize);
+    
+    // Cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
+  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
+  
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setMenuOpen(false); // Close menu after clicking
+      // Only close menu if we're on mobile
+      if (isMobile) {
+        setMenuOpen(false);
+      }
     }
   };
+  
+  // Navigation items array for easier maintenance
+  const navItems = [
+    { id: 'home-section', label: 'Home' },
+    { id: 'features-section', label: 'My Resume' },
+    { id: 'skills-section', label: 'Skills' },
+    { id: 'projects-section', label: 'Projects' },
+    { id: 'education-section', label: 'Education' },
+    { id: 'certifications-section', label: 'Certifications' },
+    { id: 'strengths-section', label: 'Strengths' },
+    { id: 'interests-section', label: 'Interests & Hobbies' }
+  ];
 
   return (
     <>
-    
       {isMobile && (
-        <button className="menu-button" onClick={toggleMenu}>
+        <button 
+          className="menu-button" 
+          onClick={toggleMenu}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+        >
           {menuOpen ? "✖" : "☰"}
         </button>
       )}
-
-
-      <section id="header-sectino" className={menuOpen ? "show" : "hide"}>
+      
+      <section 
+        id="header-sectino" 
+        className={isMobile ? (menuOpen ? "show" : "hide") : ""}
+        aria-hidden={isMobile && !menuOpen}
+      >
         <div id="images">
-          <img src='./https://via.placeholder.com/150' alt="Profile" />
+          <img src='https://via.placeholder.com/150' alt="Profile" />
         </div>
+        
         <div id="items">
           <ol className="nav-menu">
-            <li onClick={() => scrollToSection('home-section')}>Home</li>
-            <li onClick={() => scrollToSection('features-section')}>My Resume</li>
-            <li onClick={() => scrollToSection('skills-section')}>Skills</li>
-            <li onClick={() => scrollToSection('projects-section')}>Projects</li>
-            <li onClick={() => scrollToSection('education-section')}>Education</li>
-            <li onClick={() => scrollToSection('certifications-section')}>Certifications</li>
-            <li onClick={() => scrollToSection('strengths-section')}>Strengths</li>
-            <li onClick={() => scrollToSection('interests-section')}>Interests & Hobbies</li>
+            {navItems.map((item, index) => (
+              <li 
+                key={index}
+                onClick={() => scrollToSection(item.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    scrollToSection(item.id);
+                  }
+                }}
+              >
+                {item.label}
+              </li>
+            ))}
           </ol>
         </div>
+        
         <Contact />
       </section>
     </>

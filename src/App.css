@@ -44,17 +44,27 @@ hr {
   border-radius: 2px; /* Smooth edges */
   opacity: 0.8; /* Slight transparency */
 }
-
 .star {
-  position: absolute;
+  position: fixed; /* Keep them fixed relative to the viewport */
   width: 5px; 
   height: 5px;
   background-color: white;
   border-radius: 50%;
   opacity: 0.4 !important;
-  overflow-y: hidden !important;  
+  pointer-events: none; /* Prevent interaction issues */
+  z-index: 10; /* Send stars to the background */
   animation: floatGalaxy linear infinite;
 }
+
+/* Limit star placement on mobile */
+@media (max-width: 768px) {
+  .star {
+    width: 3px; 
+    height: 3px;
+    opacity: 0.3 !important;
+  }
+}
+
 
 @keyframes floatGalaxy {
   0% {
