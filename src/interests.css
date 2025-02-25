@@ -43,13 +43,13 @@
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   
-  /* Hover Effect */
+  
   .interest-item:hover {
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   }
   
-  /* Icon */
+  
   .interest-icon {
     font-size: 2.5rem;
     color: #ff8a00;
@@ -61,14 +61,14 @@
     transform: rotate(10deg);
   }
   
-  /* Interest Name */
+  
   .interest-name {
     font-weight: 500;
     color: #fff;
     font-size: 1rem;
   }
   
-  /* ===== Declaration Section ===== */
+  
   .declaration {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 30px;
@@ -79,7 +79,7 @@
     color: white;
   }
   
-  /* Declaration Heading */
+  
   .declaration h3 {
     color: #ff3d3d;
     margin-bottom: 15px;
@@ -87,7 +87,7 @@
     font-weight: bold;
   }
   
-  /* Signature */
+  
   .signature {
     margin-top: 20px;
     font-weight: 700;
@@ -95,7 +95,7 @@
     font-size: 1.2rem;
   }
   
-  /* ===== Responsive Design ===== */
+  
   @media (max-width: 768px) {
     .interests-container {
       gap: 20px;

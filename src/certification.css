@@ -1,4 +1,4 @@
-/* General Section Styling */
+
 #certifications-section {
     padding: 60px 20px;
     height: 100vh;
@@ -18,7 +18,6 @@
     letter-spacing: 1px;
   }
   
-  /* Certifications Grid */
   .certificates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -26,7 +25,6 @@
     justify-content: center;
   }
   
-  /* Certificate Cards */
   .certificate-card {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -50,7 +48,6 @@
     color: #ffcc00;
   }
   
-  /* Certificate Content */
   .certificate-content h3 {
     font-size: 1.2rem;
     font-weight: bold;
@@ -67,7 +64,6 @@
     font-weight: 500;
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     .certificates-grid {
       grid-template-columns: 1fr;

@@ -35,14 +35,14 @@ export default function Header() {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      // Only close menu if we're on mobile
+      
       if (isMobile) {
         setMenuOpen(false);
       }
     }
   };
   
-  // Navigation items array for easier maintenance
+  
   const navItems = [
     { id: 'home-section', label: 'Home' },
     { id: 'features-section', label: 'My Resume' },
