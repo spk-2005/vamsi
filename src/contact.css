@@ -2,8 +2,8 @@
 
 .contact-section {
     display: flex;
-    justify-content: center;
     overflow: hidden;
+    margin-left: 1em;
     gap: 1.5rem;
   }
   

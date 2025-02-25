@@ -49,8 +49,6 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    align-items: center;
-    justify-content: space-around; /* Changed to space-around for better distribution */
     background: linear-gradient(155deg, rgb(6, 2, 2), rgba(13, 3, 3, 0.856), rgba(40, 6, 6, 0.531));
     overflow: hidden; /* Changed from overflow-y: auto to prevent scrolling */
     transition: all 0.3s ease-in-out;
@@ -59,8 +57,6 @@
   
   #images {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     flex: 0 0 auto; /* Prevent flex shrinking */
   }
@@ -78,8 +74,7 @@
   #header-sectino #items {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
     overflow: visible; /* Changed from overflow-y: auto */
     flex: 1 0 auto; /* Take available space but don't shrink */
@@ -88,10 +83,7 @@
   #header-sectino ol {
     list-style: none;
     padding: 0;
-    text-align: right;
-    width: 80%;
-    max-width: 300px;
-    margin: 10px 0; /* Adjust margin */
+    width: 100%;
   }
   
   #header-sectino ol li {
@@ -105,6 +97,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    padding:.8em;
     margin-bottom: 5px; /* Add small margin between items */
   }
   
