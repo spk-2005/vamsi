@@ -1,0 +1,76 @@
+/* education.css */
+.education-timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  
+  .education-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    width: 2px;
+    background: linear-gradient(to bottom, #ff3d3d, rgba(255, 61, 61, 0.2));
+  }
+  
+  .education-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .education-item:hover {
+    transform: translateX(10px);
+  }
+  
+  .education-point {
+    position: absolute;
+    left: -40px;
+    top: 25px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff3d3d, #ff8a00);
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(255, 61, 61, 0.5);
+  }
+  
+  .education-content h3 {
+    color: #fff;
+    margin: 0 0 15px 0;
+    font-size: 1.3rem;
+  }
+  
+  .education-duration {
+    color: #ff8a00;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .education-institution {
+    font-style: italic;
+    margin-bottom: 5px;
+    color: #ddd;
+  }
+  
+  .education-grade {
+    color: #ff3d3d;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 768px) {
+    .education-timeline {
+      padding-left: 30px;
+    }
+    
+    .education-point {
+      left: -30px;
+      width: 15px;
+      height: 15px;
+    }
+  }

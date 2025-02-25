@@ -1,0 +1,191 @@
+
+
+.menu-button {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1001;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .menu-button:hover {
+    background: rgba(255, 0, 0, 0.7);
+  }
+  
+  
+  #header-sectino {
+    display: none;
+  }
+  
+  
+  #header-sectino.show {
+    display: block;
+  }
+  
+  
+  #header-sectino.hide {
+    display: none;
+  }
+  
+  
+  @media (min-width: 501px) {
+    #header-sectino {
+      display: block !important; 
+    }
+  }
+  
+    #header-sectino {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-content:center;
+        background: linear-gradient(155deg, rgb(6, 2, 2), rgba(13, 3, 3, 0.856), rgba(172, 1, 1, 0.531));
+        overflow-y: auto;
+    }
+        
+    #images{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #header-sectino img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 2px solid grey;
+        object-fit: cover;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+        
+        
+    #header-sectino #items{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center
+    }
+    #header-sectino ol {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        margin-top: .2em;
+    }
+        
+    #header-sectino ol li {
+        padding: .7em;
+        border-radius:5px;
+        width: 100%;
+        color: white;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+    }
+    
+    #header-sectino ol li::before {
+        font-family: 'Ionicons';
+        margin-right: 10px;
+        font-size: 1.2em;
+    }
+    
+    
+    #header-sectino ol li:nth-child(1)::before {
+        content: "\f015";
+        font-family: 'FontAwesome';
+
+        
+    }
+    
+    #header-sectino ol li:nth-child(2)::before {
+        content: "\f0e7";
+        font-family: 'FontAwesome';
+        
+    }
+    
+    #header-sectino ol li:nth-child(3)::before {
+        content: "\f19d";
+        font-family: 'FontAwesome';
+        
+    }
+    
+    #header-sectino ol li:nth-child(4)::before {
+        content: "\f0b1";
+        font-family: 'FontAwesome';
+        /* Projects/Briefcase icon */
+    }
+    
+    #header-sectino ol li:nth-child(5)::before {
+        content: "\f19c";
+        font-family: 'FontAwesome';
+        
+    }
+    
+    #header-sectino ol li:nth-child(6)::before {
+        content: "\f0a3";
+        font-family: 'FontAwesome';
+        
+    }
+    
+    #header-sectino ol li:nth-child(7)::before {
+        content: "\f0e7";
+        font-family: 'FontAwesome';
+        
+    }
+    
+    #header-sectino ol li:nth-child(8)::before {
+        content: "\f004";
+        font-family: 'FontAwesome';
+        
+    }
+        
+    #header-sectino ol li:hover {
+        color: #fb0000;
+        -webkit-text-stroke: 1px red;
+        width: 100%;
+        background-color: #98000074;
+    }
+    
+    #header-sectino ol li:hover::before {
+        color: #ff4d4d;
+    }
+        
+    @media (max-width: 768px) {
+        #header-sectino {
+        padding: 1.5rem 0;
+        }
+            
+        #header-sectino img {
+        width: 150px;
+        height: 150px;
+        margin-top: 1rem;
+        }
+    }
+        
+    @media (max-width: 480px) {
+        #header-sectino img {
+        width: 120px;
+        height: 120px;
+        }
+            
+        #header-sectino ol li {
+        padding: 0.6em 0;
+        font-size: 0.9rem;
+        }
+        
+        #header-sectino ol li::before {
+        font-size: 1em;
+        }
+    }

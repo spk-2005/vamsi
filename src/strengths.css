@@ -1,0 +1,67 @@
+
+
+.strengths-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    height: 100vh;
+  }
+  
+  .strength-item {
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .strength-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #ff3d3d, transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .strength-item:hover::before {
+    left: 100%;
+  }
+  
+  .strength-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .strength-icon {
+    font-size: 2.5rem;
+    color: #ff3d3d;
+    margin-bottom: 15px;
+  }
+  
+  .strength-name {
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .strengths-container {
+      gap: 20px;
+    }
+    
+    .strength-item {
+      width: 130px;
+      height: 130px;
+    }
+  }

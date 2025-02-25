@@ -1,0 +1,32 @@
+
+
+.contact-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    overflow: hidden;
+    gap: 1.5rem;
+  }
+  
+  .contact-section ion-icon {
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .contact-section ion-icon:hover {
+    transform: scale(1.2);
+    color: #ff4d4d;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .contact-section {
+      gap: 1rem;
+    }
+    
+    .contact-section ion-icon {
+      font-size: 1.5rem;
+    }
+  }

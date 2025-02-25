@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .app-section {
+    display: flex;
+    width: 100%;
+  }
+
+  .header {
+    width: 25%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.48);
+    z-index: 100;
+    overflow-y: auto;
+  }
+  #content-area {
+  margin-left: 25%;
+  width: 75%;
+  background-color: rgb(0, 0, 0);
+  padding: 20px;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  height: auto;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.star {
+  position: absolute;
+  width: 5px; 
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.4 !important;
+  overflow: hidden;
+  animation: floatGalaxy linear infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes floatGalaxy {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px) scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px) translateX(-20px) scale(1);
+    opacity: 0.6;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  #content-area > section {
+    padding: 20px 0; 
+    scroll-margin-top: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  @media (max-width: 1024px) {
+    .header {
+      width: 40%;
+    }
+
+    #content-area {
+      margin-left: 40%;
+      width: 60%;
+    }
   }
-}
+
+  @media (max-width: 768px) {
+    .app-section {
+      flex-direction: column;
+    }
+
+    .header {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    #content-area {
+      margin-left: 0;
+      width: 100%;
+      height: auto;
+    }
+    
+    #content-area > section {
+      min-height: unset;
+      padding: 40px 0;
+    }
+  }
+  .resume-btn{
+    position: absolute;
+    top: 10%;
+    color: white;
+    left: 10%;
+  }
+  #top {
+    position: fixed;
+    bottom: 5px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 9999; 
+  }
+
+
+  #top:hover {
+    transform: scale(1.1);
+  }
+
+  #top .topbut {
+    width:20px;
+    height: 20px;
+    animation: jump 1s infinite alternate ease-in-out;
+    color: white;
+    background: #ff0000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    z-index: 10000;
+  }@keyframes jump {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }

@@ -1,0 +1,77 @@
+
+
+.projects-container {
+    display: grid;
+    color: white;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+  }
+  
+  .project-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #ff3d3d;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .project-title {
+    font-size: 1.4rem;
+    margin: 0 0 10px 0;
+    color: #ff3d3d !important;
+  }
+  
+  .project-duration {
+    font-size: 0.9rem;
+    color: #ccc;
+    font-style: italic;
+  }
+  
+  .project-content {
+    padding: 20px;
+    flex: 1;
+  }
+  
+  .project-section {
+    margin-bottom: 15px;
+  }
+  
+  .project-section h4 {
+    color: #ff8a00;
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+  
+  .project-section p {
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .project-section ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .project-section li {
+    margin-bottom: 5px;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .projects-container {
+      grid-template-columns: 1fr;
+    }
+  }
