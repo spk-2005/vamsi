@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import './App.css';
 import Certifications from './certifications';
 import Education from './education';
@@ -11,51 +11,42 @@ import Skills from './skills';
 import Strengths from './strengths';
 
 function App() {
-  const [contentHeight, setContentHeight] = useState(0);
-
+  
   useEffect(() => {
-    const contentArea = document.getElementById("content-area");
-    
-    const calculateHeight = () => {
-      let totalHeight = contentArea.scrollHeight;
-      return totalHeight;
-    };
 
     const updateHeight = () => {
-      setContentHeight(calculateHeight());
     };
 
-    setTimeout(() => {
-      setContentHeight(calculateHeight());
-    }, 500);
-
+    setTimeout(updateHeight, 500);
     window.addEventListener('resize', updateHeight);
-    
+
     return () => {
       window.removeEventListener('resize', updateHeight);
     };
   }, []);
 
   useEffect(() => {
-    const numStars = 200;
-    const contentArea = document.getElementById('content-area');
-
-    if (!contentArea) return;
-
-    // Remove existing stars
-    const existingStars = document.querySelectorAll('.star');
-    existingStars.forEach(star => star.remove());
-
+    const numStars = 300;
+  
+    // Remove existing stars to prevent duplication
+    document.querySelectorAll('.star').forEach(star => star.remove());
+  
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement('div');
       star.className = 'star';
-      star.style.top = `${Math.random() * contentHeight}px`; // Use full content height
+      
+      // Ensure stars appear across the entire page, not just the viewport
+      const pageHeight = document.documentElement.scrollHeight;
+      
+      star.style.top = `${Math.random() * pageHeight}px`; // Full page height
       star.style.left = `${Math.random() * 100}vw`;
       star.style.animationDuration = `${Math.random() * 3 + 2}s`;
       star.style.animationDelay = `${Math.random()}s`;
-      contentArea.appendChild(star);
+  
+      document.body.appendChild(star);
     }
-  }, [contentHeight]); // Re-run when content height changes
+  }, []); // Remove contentHeight dependency
+  
   const scrollToTop = () => {
     const contentArea = document.getElementById('content-area');
     if (contentArea.scrollTop > 0) {
@@ -79,6 +70,7 @@ function App() {
         
         <div id='content-area'>
           <Home />
+          <hr/>
           <Features />
           <Skills />
           <Projects />

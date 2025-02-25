@@ -36,6 +36,14 @@
   height: auto;
   position: relative;
 }
+hr {
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background: linear-gradient(to right, #00c6ff, #0072ff); /* Gradient effect */
+  margin: 20px 0; /* Space above and below */
+  border-radius: 2px; /* Smooth edges */
+  opacity: 0.8; /* Slight transparency */
+}
 
 .star {
   position: absolute;
@@ -44,8 +52,8 @@
   background-color: white;
   border-radius: 50%;
   opacity: 0.4 !important;
+  overflow-y: hidden !important;  
   animation: floatGalaxy linear infinite;
-  pointer-events: none; /* Ensures stars don't interfere with scrolling */
 }
 
 @keyframes floatGalaxy {
@@ -54,11 +62,11 @@
     opacity: 0.8;
   }
   50% {
-    transform: translateY(-10px) translateX(10px) scale(1.1);
+    transform: translateY(-20px) translateX(20px) scale(0.9);
     opacity: 1;
   }
   100% {
-    transform: translateY(10px) translateX(-10px) scale(1);
+    transform: translateY(20px) translateX(-20px) scale(1);
     opacity: 0.6;
   }
 }

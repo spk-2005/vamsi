@@ -1,24 +1,12 @@
-import React from 'react';
-import './interests.css';
+import React from "react";
+import "./interests.css";
 
 export default function Interests() {
   const interests = [
-    {
-      name: "Designing",
-      icon: "paint-brush"
-    },
-    {
-      name: "Travel",
-      icon: "plane"
-    },
-    {
-      name: "Photography",
-      icon: "camera"
-    },
-    {
-      name: "Cooking",
-      icon: "utensils"
-    }
+    { name: "Designing", icon: "paint-brush" },
+    { name: "Travel", icon: "plane" },
+    { name: "Photography", icon: "camera" },
+    { name: "Cooking", icon: "utensils" },
   ];
 
   return (
@@ -35,10 +23,13 @@ export default function Interests() {
             </div>
           ))}
         </div>
-        
+
         <div className="declaration">
           <h3>Declaration</h3>
-          <p>I hereby declare that the above-mentioned information is true to the best of my knowledge.</p>
+          <p>
+            I hereby declare that the above-mentioned information is true to the
+            best of my knowledge.
+          </p>
           <div className="signature">CHUKKA VAMSI</div>
         </div>
       </div>
