@@ -1,4 +1,4 @@
-import { useEffect} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Certifications from './certifications';
 import Education from './education';
@@ -10,11 +10,51 @@ import Projects from './projects';
 import Skills from './skills';
 import Strengths from './strengths';
 
-function App() {
-  
-  useEffect(() => {
+// Animation component wrapper
+const AnimatedSection = ({ children, animationClass = 'fade-in' }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When the component enters the viewport
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+      }
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  return (
+    <div 
+      ref={sectionRef} 
+      className={`animated-section ${isVisible ? animationClass : 'hidden'}`}
+    >
+      {children}
+    </div>
+  );
+};
+
+function App() {
+  useEffect(() => {
     const updateHeight = () => {
+      // Your existing code here
     };
 
     setTimeout(updateHeight, 500);
@@ -27,26 +67,26 @@ function App() {
 
   useEffect(() => {
     const numStars = 300;
-  
+
     // Remove existing stars to prevent duplication
     document.querySelectorAll('.star').forEach(star => star.remove());
-  
+
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement('div');
       star.className = 'star';
-      
+
       // Ensure stars appear across the entire page, not just the viewport
       const pageHeight = document.documentElement.scrollHeight;
-      
+
       star.style.top = `${Math.random() * pageHeight}px`; // Full page height
       star.style.left = `${Math.random() * 100}vw`;
       star.style.animationDuration = `${Math.random() * 3 + 2}s`;
       star.style.animationDelay = `${Math.random()}s`;
-  
+
       document.body.appendChild(star);
     }
   }, []); // Remove contentHeight dependency
-  
+
   const scrollToTop = () => {
     const contentArea = document.getElementById('content-area');
     if (contentArea.scrollTop > 0) {
@@ -55,8 +95,6 @@ function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
-  
-  
 
   return (
     <>
@@ -65,25 +103,41 @@ function App() {
       </div>
       <section className='app-section'>
         <div className='header'>
-          <Header />         
+          <Header />
         </div>
-        
+
         <div id='content-area'>
-          <Home />
+          <AnimatedSection animationClass="slide-in-right">
+            <Home />
+          </AnimatedSection>
           <hr/>
-          <Features />
+          <AnimatedSection animationClass="slide-in-left">
+            <Features />
+          </AnimatedSection>
           <hr/>
-          <Skills />
+          <AnimatedSection animationClass="fade-in-up">
+            <Skills />
+          </AnimatedSection>
           <hr/>
-          <Projects />
+          <AnimatedSection animationClass="zoom-in">
+            <Projects />
+          </AnimatedSection>
           <hr/>
-          <Education />
+          <AnimatedSection animationClass="slide-in-right">
+            <Education />
+          </AnimatedSection>
           <hr/>
-          <Certifications />
+          <AnimatedSection animationClass="slide-in-left">
+            <Certifications />
+          </AnimatedSection>
           <hr/>
-          <Strengths />
+          <AnimatedSection animationClass="fade-in-up">
+            <Strengths />
+          </AnimatedSection>
           <hr/>
-          <Interests />
+          <AnimatedSection animationClass="zoom-in">
+            <Interests />
+          </AnimatedSection>
         </div>
       </section>
     </>
