@@ -157,7 +157,7 @@ hr {
     100% {
       transform: translateY(-10px);
     }
-  }/* Base styles for animations */
+  }
 .animated-section {
   opacity: 1;
   transition: all 0.8s ease-out;
@@ -168,7 +168,6 @@ hr {
   transform: translateY(20px);
 }
 
-/* Fade in animation */
 .fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
@@ -198,7 +197,6 @@ hr {
   }
 }
 
-/* Slide in from left */
 .slide-in-left {
   animation: slideInLeft 0.8s ease-out forwards;
 }
@@ -214,7 +212,6 @@ hr {
   }
 }
 
-/* Fade in up animation */
 .fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -230,7 +227,6 @@ hr {
   }
 }
 
-/* Zoom in animation */
 .zoom-in {
   animation: zoomIn 0.8s ease-out forwards;
 }
